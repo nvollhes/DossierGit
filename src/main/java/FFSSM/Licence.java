@@ -3,7 +3,10 @@
  */
 package FFSSM;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 import java.util.Calendar;
+import static java.util.Calendar.YEAR;
 
 public class Licence {
 
@@ -44,6 +47,9 @@ public class Licence {
     public Club getClub() {
         return club;
     }
+    public Club setClub(Club c){
+        return  c = club;
+    }
 
     /**
      * Est-ce que la licence est valide à la date indiquée ?
@@ -51,8 +57,11 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
     public boolean estValide(Calendar d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        d.add(YEAR,-1);
+        if ( d.before(delivrance)==TRUE){
+            return TRUE;
+        }
+        return FALSE;
     }
 
 }
